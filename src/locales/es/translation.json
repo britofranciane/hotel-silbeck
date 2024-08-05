@@ -1,0 +1,99 @@
+{
+  "welcome": "Bienvenido",
+  "comments": "Comentarios",
+  "roomsAvailable": "Habitaciones disponibles",
+  "title": "",
+  "components": {
+    "header": {
+      "top": {
+        "menu": "Menú",
+        "rooms": "Habitaciones",
+        "reviews": "Reseñas",
+        "bookings": "Reservas"
+      },
+      "bottom": {
+        "checkIn": "Entrada",
+        "checkOut": "Salida",
+        "adults": "Adultos",
+        "children": "Niños",
+        "dateOfStay": "Fecha de Estancia",
+        "calendar": "calendario",
+        "guests": "Huéspedes",
+        "chevronDown": "chevron-down",
+        "search": "Buscar"
+      }
+    },
+    "footer": {
+      "socialMedia": "Encuéntranos en las redes sociales",
+      "newsletter": "Suscríbete a nuestro boletín, ¡cada semana un nuevo contenido sobre el universo de la hotelería en tu correo electrónico!",
+      "address": "Calle Bernardo Locks, 148",
+      "location": "Centro, Braço do Norte - Santa Catarina.",
+      "prefix": "Prefijo",
+      "suffix": "Sufijo",
+      "phone": "(48) 3658-7272",
+      "email": "Correo electrónico",
+      "send": "Enviar",
+      "aboutUs": "Sobre nosotros",
+      "ourHistory": "Nuestra Historia",
+      "emailAddress": "soporte@silbeck.com.br",
+      "contact": "Contacto",
+      "termsAndConditions": "Términos y Condiciones",
+      "otherServices": "Otros Servicios",
+      "tours": "Tours",
+      "spa": "Spa",
+      "bookSpace": "Reservar Espacio"
+    },
+    "roomCards": {
+      "comments": "Comentários",
+      "stay": "Estancia desde",
+      "reserve": "Reservar"
+    }
+  },
+  "pages": {
+    "home": {
+      "notification": {
+        "es": {
+          "message": "Añadido con Éxito",
+          "description": "¡El producto seleccionado ha sido añadido al carrito de reservas!"
+        }
+      },
+      "sectionRooms": {
+        "title": "Habitaciones",
+        "description": "Todos nuestros tipos de habitaciones incluyen desayuno"
+      },
+      "sectionEvaluation": {
+        "title": "Reseñas"
+      }
+    },
+    "payment": {
+      "shoppingCart": {
+        "dailyRates": "Tarifas Diarias",
+        "stayPeriod": "Estancia",
+        "guestQuantity": "Cantidad de Huéspedes",
+        "delete": "Eliminar"
+      },
+      "form": {
+        "identification": "Identificación",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "paymentMethod": "Método de Pago",
+        "creditCard": "Tarjeta de Crédito",
+        "pix": "PIX",
+        "cardHolderName": "Nombre en la Tarjeta",
+        "cardNumber": "Número de la Tarjeta",
+        "cardNumberPlaceholder": "0000 0000 0000 0000",
+        "expiryDate": "Fecha de Expiración",
+        "cvc": "CVC",
+        "expiryDatePlaceholder": "00/00",
+        "calendar": "calendario",
+        "000": "000"
+      },
+      "reservationSummary": {
+        "title": "Resumen de la Reserva",
+        "confirmPayment": "Confirmar pago",
+        "cancel": "Cancelar",
+        "totalAmount": "Monto Total"
+      }
+    }
+  }
+}

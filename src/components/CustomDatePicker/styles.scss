@@ -1,0 +1,43 @@
+.ant-picker {
+  height: 56px;
+}
+
+.ant-picker-input {
+  .anticon svg {
+    color: #a3a3a3 !important;
+    font-size: 20px;
+  }
+}
+
+.custom-date-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 88px;
+  max-height: 88px;
+  width: 100%;
+  max-width: 256px;
+  box-sizing: border-box;
+  &__label {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 256px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-date-picker {
+    width: 100%;
+    max-width: none;
+    &__label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: none;
+    }
+  }
+}

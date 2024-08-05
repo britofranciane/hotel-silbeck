@@ -1,0 +1,26 @@
+.mobile-menu {
+  width: 260px;
+  position: fixed;
+  top: 30;
+  z-index: 100;
+  left: 30;
+}
+
+.menu-root {
+  &__button {
+    margin-bottom: 16px;
+    border: none;
+    padding: 0 !important;
+    height: 56px !important;
+    color: #182558;
+    border-color: #182558;
+  }
+}
+
+.ant-menu-inline-collapsed {
+  width: 0 !important;
+}
+
+.ant-menu-vertical {
+  border: none !important;
+}

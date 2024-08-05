@@ -1,0 +1,27 @@
+.form-payment-component {
+  width: 100%;
+  max-width: 856px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &__title {
+    color: #333;
+    font-size: 1.5rem;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    min-width: 300px;
+    font-size: 1rem;
+  }
+  &__container-inputs {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+}

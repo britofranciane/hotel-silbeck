@@ -1,0 +1,99 @@
+{
+  "welcome": "Welcome",
+  "comments": "Comments",
+  "roomsAvailable": "Available Rooms",
+  "title": "",
+  "components": {
+    "header": {
+      "top": {
+        "menu": "Menu",
+        "rooms": "Rooms",
+        "reviews": "Reviews",
+        "bookings": "Bookings"
+      },
+      "bottom": {
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "adults": "Adults",
+        "children": "Children",
+        "dateOfStay": "Date of Stay",
+        "calendar": "calendar",
+        "guests": "Guests",
+        "chevronDown": "chevron-down",
+        "search": "Search"
+      }
+    },
+    "footer": {
+      "socialMedia": "Find us on social media",
+      "newsletter": "Subscribe to our newsletter, every week a new content about the hotel industry in your email!",
+      "address": "Bernardo Locks Street, 148",
+      "location": "Downtown, Braço do Norte - Santa Catarina.",
+      "prefix": "Prefix",
+      "suffix": "Suffix",
+      "phone": "(48) 3658-7272",
+      "email": "Email",
+      "send": "Send",
+      "aboutUs": "About Us",
+      "ourHistory": "Our History",
+      "emailAddress": "support@silbeck.com.br",
+      "contact": "Contact",
+      "termsAndConditions": "Terms and Conditions",
+      "otherServices": "Other Services",
+      "tours": "Tours",
+      "spa": "Spa",
+      "bookSpace": "Book Space"
+    },
+    "roomCards": {
+      "comments": "Comments",
+      "stay": "Stay from",
+      "reserve": "Reserve"
+    }
+  },
+  "pages": {
+    "home": {
+      "notification": {
+        "en": {
+          "message": "Added Successfully",
+          "description": "The selected product has been added to the reservation cart!"
+        }
+      },
+      "sectionRooms": {
+        "title": "Rooms",
+        "description": "All our room types include breakfast"
+      },
+      "sectionEvaluation": {
+        "title": "Reviews"
+      }
+    },
+    "payment": {
+      "shoppingCart": {
+        "dailyRates": "Daily Rates",
+        "stayPeriod": "Stay Period",
+        "guestQuantity": "Guest Quantity",
+        "delete": "Delete"
+      },
+      "form": {
+        "identification": "Identification",
+        "name": "Name",
+        "email": "Email",
+        "paymentMethod": "Payment Method",
+        "creditCard": "Credit Card",
+        "pix": "PIX",
+        "cardHolderName": "Card Holder Name",
+        "cardNumber": "Card Number",
+        "cardNumberPlaceholder": "0000 0000 0000 0000",
+        "expiryDate": "Expiry Date",
+        "cvc": "CVC",
+        "expiryDatePlaceholder": "00/00",
+        "calendar": "calendar",
+        "000": "000"
+      },
+      "reservationSummary": {
+        "title": "Reservation Summary",
+        "confirmPayment": "Confirm Payment",
+        "cancel": "Cancel",
+        "totalAmount": "Total Amount"
+      }
+    }
+  }
+}

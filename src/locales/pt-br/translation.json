@@ -1,0 +1,91 @@
+{
+  "title": "",
+  "components": {
+    "header": {
+      "top": {
+        "menu": "Menu",
+        "rooms": "Quartos",
+        "reviews": "Avaliações",
+        "bookings": "Reservas"
+      },
+      "bottom": {
+        "checkIn": "Entrada",
+        "checkOut": "Saída",
+        "adults": "Adultos",
+        "children": "Crianças",
+        "dateOfStay": "Data Estadia",
+        "calendar": "calendar",
+        "guests": "Hóspedes",
+        "chevronDown": "chevron-down",
+        "search": "Pesquisar"
+      }
+    },
+    "footer": {
+      "socialMedia": "Nos encontre nas redes sociais",
+      "newsletter": "Assine nossa newsletter, toda semana um conteúdo novo sobre o universo da hotelaria no seu email!",
+      "address": "Rua Bernardo Locks, 148",
+      "location": "Centro, Braço do Norte - Santa Catarina.",
+      "phone": "(48) 3658-7272",
+      "email": "E-mail",
+      "send": "Enviar",
+      "aboutUs": "Sobre nós",
+      "emailAddress": "suporte@silbeck.com.br",
+      "ourHistory": "Nossa História",
+      "contact": "Contato",
+      "termsAndConditions": "Termos e Condições",
+      "otherServices": "Outros Serviços",
+      "tours": "Passeios",
+      "spa": "Spa",
+      "bookSpace": "Reserva Espaço"
+    },
+    "roomCards": {
+      "comments": "Comentários",
+      "stay": "Diária a partir de",
+      "reserve": "Reservar"
+    }
+  },
+  "pages": {
+    "home": {
+      "notification": {
+        "message": "Adicionado com Sucesso",
+        "description": "O produto escolhido foi adicionado ao carrinho de reservas!"
+      },
+      "sectionRooms": {
+        "title": "Quartos",
+        "description": "Todos os nossos tipos de quartos incluem café da manhã"
+      },
+      "sectionEvaluation": {
+        "title": "Avaliações"
+      }
+    },
+    "payment": {
+      "shoppingCart": {
+        "dailyRates": "Diárias",
+        "stayPeriod": "Estadia",
+        "guestQuantity": "Qtde Hóspedes",
+        "delete": "Excluir"
+      },
+      "form": {
+        "identification": "Identificação",
+        "name": "Nome",
+        "email": "E-mail",
+        "paymentMethod": "Pagamento",
+        "creditCard": "Cartão de Crédito",
+        "pix": "PIX",
+        "cardHolderName": "Nome Cartão",
+        "cardNumber": "Número Cartão",
+        "cardNumberPlaceholder": "0000 0000 0000 0000",
+        "expiryDate": "Validade",
+        "cvc": "CVC",
+        "expiryDatePlaceholder": "00/00",
+        "000": "000"
+      },
+      "reservationSummary": {
+        "title": "Resumo da Reserva",
+        "confirmPayment": "Confirmar pagamento",
+        "cancel": "Cancelar",
+        "totalAmount": "Valor Total"
+      }
+    }
+  }
+}

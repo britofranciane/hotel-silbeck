@@ -1,0 +1,44 @@
+.ant-select-selector {
+  height: 56px !important;
+  font-size: 20px;
+}
+
+.ant-select-selector {
+  border-radius: 0.5rem !important;
+}
+
+.custom-select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 88px;
+  max-height: 88px;
+  width: 100%;
+  max-width: 256px;
+  box-sizing: border-box;
+  &__label {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 256px;
+    box-sizing: border-box;
+  }
+  &__select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-select {
+    width: 100%;
+    max-width: none;
+    &__label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: none;
+    }
+  }
+}

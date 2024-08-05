@@ -1,0 +1,21 @@
+.slick-next {
+  border-radius: 50%;
+  color: #7a7a7a !important;
+  background: #4b4b4b14 !important;
+}
+
+.slick-prev {
+  padding: 0.75rem !important;
+  color: #7a7a7a !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4b4b4b14 !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  align-items: center;
+  padding: 1rem 3rem;
+}
