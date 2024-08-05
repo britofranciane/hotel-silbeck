@@ -44,13 +44,7 @@ const FormPayment: React.FC = () => {
       className={'form-payment-component'}
     >
       <Form className="form-payment-component">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-          }}
-        >
+        <div className="form-payment-component__content">
           <h2 className="form-payment-component__title">
             {tPath('identification')}
           </h2>
@@ -75,24 +69,12 @@ const FormPayment: React.FC = () => {
           </div>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-          }}
-        >
+        <div className="form-payment-component__content">
           <h2 className="form-payment-component__title">
             {tPath('paymentMethod')}
           </h2>
 
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}
-          >
+          <div className="form-payment-component__container-radios">
             <label>
               <input type="radio" id="css" name="fav_language" value="CSS" />
               {tPath('creditCard')}
@@ -125,7 +107,7 @@ const FormPayment: React.FC = () => {
             <ErrorMessage name="cardNumber" component="div" />
           </div>
           <div className="form-payment-component__container-inputs">
-            <div style={{ width: '100%' }}>
+            <div className="form-payment-component__container">
               <Input
                 name="validate"
                 type="text"
@@ -135,7 +117,7 @@ const FormPayment: React.FC = () => {
               <ErrorMessage name="validate" component="div" />
             </div>
 
-            <div style={{ width: '100%' }}>
+            <div className="form-payment-component__container">
               <Input
                 name="cvv"
                 type="text"
