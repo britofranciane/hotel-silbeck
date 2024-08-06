@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
 import { FaRegTrashAlt } from 'react-icons/fa';
-import { IoAdd } from 'react-icons/io5';
-import { RiSubtractLine } from 'react-icons/ri';
 import { useTranslation } from 'react-i18next';
-
+import ButtonGroup from 'antd/es/button/button-group';
+import { Button } from 'antd';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 interface Props {
   title: string;
   stay: string;
@@ -30,6 +30,24 @@ const ShoppingCart: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const tPath = (path: string) => t(`pages.payment.shoppingCart.${path}`);
+  const [count, setCount] = useState(5);
+
+  const increase = () => {
+    setCount(count + 1);
+  };
+
+  const decline = () => {
+    let newCount = count - 1;
+    if (newCount < 0) {
+      newCount = 0;
+    }
+    setCount(newCount);
+  };
+
+  const random = () => {
+    const newCount = Math.floor(Math.random() * 100);
+    setCount(newCount);
+  };
 
   return (
     <div className={'shopping-cart-component'}>
@@ -51,13 +69,11 @@ const ShoppingCart: React.FC<Props> = ({
             R${price},00
           </span>
           <div className="shopping-cart-component__value__quantity">
-            <button onClick={() => setQuantity(quantity + 1)}>
-              <RiSubtractLine />
-            </button>
-            {quantity}
-            <button onClick={() => setQuantity(quantity - 1)}>
-              <IoAdd />
-            </button>
+            <ButtonGroup>
+              <Button onClick={decline} icon={<MinusOutlined />} />
+              <Button icon={count} />
+              <Button onClick={increase} icon={<PlusOutlined />} />
+            </ButtonGroup>
           </div>
         </div>
       </div>

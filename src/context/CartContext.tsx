@@ -18,31 +18,10 @@ interface CartContextProps {
   clearCart: () => void;
 }
 
-const dataCartMock: CartItem[] = [
-  {
-    title: 'Suíte Master',
-    daily: '2',
-    stay: '08/12/2023 - 10/12/2023',
-    numberGuests: '2',
-    quantity: 3,
-    price: 320,
-    id: 1
-  },
-  {
-    title: 'Luxo Casal',
-    daily: '4',
-    stay: '08/12/2023 - 10/12/2023',
-    numberGuests: '3',
-    quantity: 4,
-    price: 480,
-    id: 2
-  }
-];
-
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>(dataCartMock);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   const updateItem = (id: number, updatedItem: Partial<CartItem>) => {
     setCart(prevCart =>
