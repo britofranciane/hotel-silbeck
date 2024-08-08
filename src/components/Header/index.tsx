@@ -3,7 +3,7 @@ import './styles.scss';
 import { FaCartFlatbedSuitcase } from 'react-icons/fa6';
 import Logo from '@assets/logo-black.svg';
 import { useTranslation } from 'react-i18next';
-import '../../i18n.ts';
+import '../../locales/i18n.ts';
 import {
   CustomBadge,
   CustomButton,
@@ -16,7 +16,7 @@ import { IoFilterSharp } from 'react-icons/io5';
 import { Button } from 'antd';
 import { useLocale } from '@context/LocaleContext.tsx';
 import { useCart } from '@context/CartContext.tsx';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isVisibleFilters, setIsVisibleFilters] = useState<boolean>(false);
@@ -30,8 +30,8 @@ const Header: React.FC = () => {
 
   const options = [
     { value: 'pt', label: 'BRL' },
-    { value: 'en', label: 'EN' },
-    { value: 'es', label: 'ES' }
+    { value: 'en', label: 'USD' },
+    { value: 'es', label: 'EUR' }
   ];
 
   const menuData = [
@@ -40,12 +40,9 @@ const Header: React.FC = () => {
     { name: tPath('top.reviews'), id: 3 }
   ];
 
-  const displayPrice = (lng: string) => {};
-
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setLanguage(lng);
-    displayPrice(lng);
   };
 
   const goToPayment = () => {
@@ -63,7 +60,7 @@ const Header: React.FC = () => {
           <ul>
             {menuData.map(({ name, id }) => (
               <li key={id}>
-                <a href="#">{name}</a>
+                <Link to={'/'}>{name}</Link>
               </li>
             ))}
           </ul>

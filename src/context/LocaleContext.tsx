@@ -1,4 +1,11 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useEffect
+} from 'react';
+import i18n from '../locales/i18n';
 
 interface LocaleContextType {
   language: string;
@@ -15,8 +22,8 @@ export const LocaleProvider: React.FC<{ children: ReactNode }> = ({
   const [language, setLanguage] = useState<string>('en');
   const [currency, setCurrency] = useState<string>('USD');
 
-  const updateLanguage = (language: string) => {
-    setLanguage(language);
+  useEffect(() => {
+    i18n.changeLanguage(language);
     switch (language) {
       case 'pt':
         setCurrency('BRL');
@@ -29,6 +36,10 @@ export const LocaleProvider: React.FC<{ children: ReactNode }> = ({
         setCurrency('USD');
         break;
     }
+  }, [language]);
+
+  const updateLanguage = (language: string) => {
+    setLanguage(language);
   };
 
   return (

@@ -11,7 +11,7 @@ interface Props {
   quantity: number;
   numberGuests: string;
   daily: string;
-  price: number;
+  price: string;
   setQuantity: (quantity: number) => void;
   removeCard: (quantity: number) => void;
   id: number;
@@ -65,9 +65,7 @@ const ShoppingCart: React.FC<Props> = ({
           </span>
         </div>
         <div className="shopping-cart-component__value">
-          <span className="shopping-cart-component__value__price">
-            R${price},00
-          </span>
+          <span className="shopping-cart-component__value__price">{price}</span>
           <div className="shopping-cart-component__value__quantity">
             <ButtonGroup>
               <Button onClick={decline} icon={<MinusOutlined />} />

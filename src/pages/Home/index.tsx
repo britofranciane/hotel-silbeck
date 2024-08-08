@@ -16,13 +16,15 @@ import HomeSkeleton from './skeleton.tsx';
 import { useCart } from '@context/CartContext.tsx';
 import { showNotification } from '@components/CustomNotification/index.ts';
 import { Comment } from '@services/comments/types.ts';
+import { formatCurrency } from '@utils/formatCurrency.ts';
 
 const Home: React.FC = () => {
-  const { language } = useLocale();
-  const { t } = useTranslation();
   const [comments, setComments] = useState<Comment[]>([]);
   const [rooms, setRooms] = useState<RoomWithTranslation[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const { language, currency } = useLocale();
+  const { t } = useTranslation();
   const { addItem } = useCart();
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const Home: React.FC = () => {
                     comments={room.comments}
                     rating={room.rating}
                     description={room.description}
-                    price={room.price}
+                    price={formatCurrency(room.price, currency)}
                     imageUrl={room.image_url}
                     onClick={() => addItemToCart(room)}
                   />

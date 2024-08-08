@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import FormPayment from './FormPayment';
 import ShoppingCart from './ShoppingCart';
-import './styles.scss';
 import { FaCheck } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
 import { CartItem, useCart } from '@context/CartContext';
 import { showNotification } from '@components/CustomNotification';
 import { useNavigate } from 'react-router-dom';
+import './styles.scss';
+import { formatCurrency } from '@utils/formatCurrency';
+import { useLocale } from '@context/LocaleContext';
 
 const Payment: React.FC = () => {
   const [quantity, setQuantity] = useState(0);
@@ -14,14 +16,14 @@ const Payment: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const tPath = (path: string) => t(`pages.payment.${path}`);
+  const { currency } = useLocale();
 
   const calculateTotalValue = () => {
     let value = 0;
     cart.map(({ quantity, price }: CartItem) => {
       value = value + quantity * price;
     });
-    console.log(value);
-    return value;
+    return formatCurrency(value, currency);
   };
 
   const confirm = () => {
@@ -52,7 +54,7 @@ const Payment: React.FC = () => {
               stay={stay}
               numberGuests={numberGuests}
               quantity={quantity}
-              price={price}
+              price={formatCurrency(price, currency)}
               setQuantity={setQuantity}
               removeCard={id => removeItem(id)}
             />

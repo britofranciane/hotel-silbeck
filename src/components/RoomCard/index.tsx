@@ -11,7 +11,7 @@ interface RoomCardProps {
   comments: string;
   rating: number;
   description: string;
-  price: number;
+  price: string;
   imageUrl: string;
   onClick: () => void;
 }
@@ -26,13 +26,6 @@ const RoomCard: React.FC<RoomCardProps> = ({
   onClick
 }) => {
   const { t } = useTranslation();
-
-  const formatForCurrency = (number: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(number);
-  };
 
   const tPath = (path: string) => t(`components.roomCards.${path}`);
 
@@ -66,7 +59,7 @@ const RoomCard: React.FC<RoomCardProps> = ({
           <p>
             {tPath('stay')}
             <br />
-            <span>{formatForCurrency(price)}</span>
+            <span>{price}</span>
           </p>
           <button className={'reserveButton'} onClick={onClick}>
             {tPath('reserve')}
