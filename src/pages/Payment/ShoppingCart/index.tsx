@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './styles.scss';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import ButtonGroup from 'antd/es/button/button-group';
 import { Button } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import { useCart } from '@context/CartContext';
+import { showConfirm } from '@components/ConfirmDialog';
+import CustomButton from '@components/CustomButton';
 interface Props {
   title: string;
   stay: string;
@@ -22,7 +25,6 @@ const ShoppingCart: React.FC<Props> = ({
   stay,
   quantity,
   numberGuests,
-  setQuantity,
   daily,
   price,
   removeCard,
@@ -30,23 +32,32 @@ const ShoppingCart: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const tPath = (path: string) => t(`pages.payment.shoppingCart.${path}`);
-  const [count, setCount] = useState(5);
+  const { updateItem, removeItem } = useCart();
+
+  const triggerConfirm = () => {
+    // adicionar confirm antes de deletar item do carrinho
+    showConfirm({
+      title: 'Are you sure you want to delete this task?',
+      content: 'This action cannot be undone.',
+      onOk: handleDelete,
+      onCancel: handleCancel,
+      okText: 'Yes, delete it',
+      cancelText: 'No, keep it',
+      width: 400
+    });
+  };
 
   const increase = () => {
-    setCount(count + 1);
+    updateItem(id, quantity + 1);
   };
 
   const decline = () => {
-    let newCount = count - 1;
-    if (newCount < 0) {
-      newCount = 0;
+    if (quantity > 1) {
+      let newQuantity = quantity - 1;
+      updateItem(id, newQuantity);
+    } else {
+      removeItem(id);
     }
-    setCount(newCount);
-  };
-
-  const random = () => {
-    const newCount = Math.floor(Math.random() * 100);
-    setCount(newCount);
   };
 
   return (
@@ -68,8 +79,12 @@ const ShoppingCart: React.FC<Props> = ({
           <span className="shopping-cart-component__value__price">{price}</span>
           <div className="shopping-cart-component__value__quantity">
             <ButtonGroup>
-              <Button onClick={decline} icon={<MinusOutlined />} />
-              <Button icon={count} />
+              <CustomButton
+                onClick={decline}
+                icon={<MinusOutlined />}
+                disabled={!quantity}
+              />
+              <span>{quantity}</span>
               <Button onClick={increase} icon={<PlusOutlined />} />
             </ButtonGroup>
           </div>

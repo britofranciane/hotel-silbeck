@@ -74,12 +74,11 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
+      <BottomContent />
       {loading ? (
         <HomeSkeleton />
       ) : (
         <>
-          <BottomContent />
-
           <section className="home-container__section">
             <div className="home-container__section__container">
               <Title text={tPath('sectionRooms.title')} />

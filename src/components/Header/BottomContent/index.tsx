@@ -1,8 +1,10 @@
 import React from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
-import CustomDatePicker from '../../CustomDatePicker';
-import CustomSelect from '../../CustomSelect';
-import CustomButton from '../../CustomButton';
+import {
+  CustomButton,
+  CustomSelect,
+  CustomDatePicker
+} from '@components/index';
 import { useTranslation } from 'react-i18next';
 import './styles.scss';
 
@@ -22,7 +24,7 @@ const BottomContent: React.FC<Props> = ({ className }) => {
   ];
 
   return (
-    <div className={`header-bottom ${className}`}>
+    <div className={`header-bottom container-header-bottom ${className}`}>
       <div className="header-bottom__form">
         <div className="header-bottom__container">
           <caption className="header-bottom__caption">
@@ -43,18 +45,8 @@ const BottomContent: React.FC<Props> = ({ className }) => {
           <caption className="header-bottom__caption">
             {tPath('bottom.guests')}
           </caption>
-          <CustomSelect
-            size={'small'}
-            options={options}
-            placeholder=""
-            label={tPath('bottom.adults')}
-          />
-          <CustomSelect
-            size={'small'}
-            placeholder=""
-            options={options}
-            label={tPath('bottom.children')}
-          />
+          <CustomSelect options={options} label={tPath('bottom.adults')} />
+          <CustomSelect options={options} label={tPath('bottom.children')} />
         </div>
         <CustomButton variant="primary" className="header-bottom__form__search">
           <IoSearchSharp />

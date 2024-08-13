@@ -5,8 +5,7 @@ import './styles.scss';
 const HomeSkeleton: React.FC = () => {
   return (
     <div className="page-skeleton">
-      <Skeleton active title={true} paragraph={{ rows: 1, width: '20%' }} />
-      <Skeleton active title={false} paragraph={{ rows: 1, width: '100%' }} />
+      <Skeleton active title={true} paragraph={{ rows: 2, width: '20%' }} />
       <div className="home-container__section__rooms-cards">
         {Array.from({ length: 3 }).map((_, idx) => (
           <Card key={idx} className="page-skeleton__card">

@@ -10,6 +10,7 @@ interface Props extends AntButtonProps {
   size?: Size;
   icon?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
 }
 
 const CustomButton: React.FC<Props> = ({

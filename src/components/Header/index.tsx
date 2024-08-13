@@ -15,7 +15,6 @@ import { useCart } from '@context/CartContext.tsx';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
-  const [isVisibleFilters, setIsVisibleFilters] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const { setLanguage } = useLocale();
@@ -71,7 +70,6 @@ const Header: React.FC = () => {
           <CustomBadge count={cart.length}>
             <CustomButton
               size="large"
-              ghost
               className="header__top__reservations"
               onClick={goToPayment}
             >
