@@ -19,8 +19,8 @@ const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 export const LocaleProvider: React.FC<{ children: ReactNode }> = ({
   children
 }) => {
-  const [language, setLanguage] = useState<string>('en');
-  const [currency, setCurrency] = useState<string>('USD');
+  const [language, setLanguage] = useState<string>('pt');
+  const [currency, setCurrency] = useState<string>('BRL');
 
   useEffect(() => {
     i18n.changeLanguage(language);

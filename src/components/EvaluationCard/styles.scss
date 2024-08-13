@@ -1,6 +1,5 @@
 .evaluation-card {
   display: flex;
-  max-width: 789px;
   width: 100%;
   align-items: center;
   gap: 1rem;
@@ -42,9 +41,9 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    gap: 1rem;
     span {
       font-family: Inter, sans-serif;
-      color: #7a7a7a;
       span::first-letter {
         text-transform: uppercase;
       }
@@ -74,19 +73,6 @@
   .evaluation-card {
     align-items: flex-start;
     gap: 1rem;
-    &__user-image {
-      min-width: 2rem;
-      width: 2rem;
-      height: 2rem;
-      svg {
-        font-size: 1rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .evaluation-card {
     &__user-image {
       min-width: 1.75rem;
       width: 1.75rem;

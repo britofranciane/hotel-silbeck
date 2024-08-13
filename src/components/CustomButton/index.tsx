@@ -9,17 +9,18 @@ interface Props extends AntButtonProps {
   variant?: Variant;
   size?: Size;
   icon?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const CustomButton: React.FC<Props> = ({
   variant = 'primary',
-  size = 'middle',
+  size = 'large',
   icon,
   children,
   ...props
 }) => {
   return (
-    <AntButton size={'large'} type={variant} icon={icon} {...props}>
+    <AntButton size={size} type={variant} icon={icon} {...props}>
       {children}
     </AntButton>
   );

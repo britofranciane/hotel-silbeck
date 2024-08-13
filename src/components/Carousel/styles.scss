@@ -16,6 +16,57 @@
 
 .slick-slide {
   display: flex !important;
+  justify-content: center;
   align-items: center;
   padding: 1rem 3rem;
+  box-sizing: border-box;
+  width: 100% !important;
+  gap: 2rem;
+}
+
+.slick-track {
+  width: 100% !important;
+  display: flex;
+}
+
+.carousel-slide {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.ant-carousel {
+  width: 100%;
+  display: flex;
+}
+
+.slick-list {
+  width: 100% !important;
+  display: flex;
+}
+
+.slick-next,
+.slick-prev {
+  padding: 20px !important;
+  background: #4b4b4b14 !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-next::after,
+.slick-prev::after {
+  color: #4b4b4b14 !important;
+  margin: 0.75rem;
+  border-top: 3px solid #7a7a7a !important;
+  border-left: 3px solid #7a7a7a !important;
+  padding: 4px;
+}
+
+.carousel {
+  display: flex;
+  width: 100%;
 }

@@ -4,6 +4,9 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  optimizeDeps: {
+    include: ['axios']
+  },
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),

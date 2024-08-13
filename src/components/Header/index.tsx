@@ -8,12 +8,8 @@ import {
   CustomBadge,
   CustomButton,
   CustomSelect,
-  MobileMenu,
-  CustomModal
+  MobileMenu
 } from '@components/index.ts';
-import BottomContent from './BottomContent/index.tsx';
-import { IoFilterSharp } from 'react-icons/io5';
-import { Button } from 'antd';
 import { useLocale } from '@context/LocaleContext.tsx';
 import { useCart } from '@context/CartContext.tsx';
 import { Link, useNavigate } from 'react-router-dom';
@@ -28,7 +24,7 @@ const Header: React.FC = () => {
 
   const tPath = (path: string) => t(`components.header.${path}`);
 
-  const options = [
+  const optionsLocale = [
     { value: 'pt', label: 'BRL' },
     { value: 'en', label: 'USD' },
     { value: 'es', label: 'EUR' }
@@ -67,8 +63,9 @@ const Header: React.FC = () => {
         </nav>
         <div className="header__top__container-reservations desktop-menu">
           <CustomSelect
+            className="remove-border"
             size="large"
-            options={options}
+            options={optionsLocale}
             onChange={v => changeLanguage(v)}
           />
           <CustomBadge count={cart.length}>
@@ -83,24 +80,6 @@ const Header: React.FC = () => {
             </CustomButton>
           </CustomBadge>
         </div>
-        <div className="mobile-menu">
-          <Button
-            onClick={() => setIsVisibleFilters(!isVisibleFilters)}
-            size="small"
-            className=""
-          >
-            <IoFilterSharp />
-          </Button>
-          <CustomModal
-            visible={isVisibleFilters}
-            onCancel={() => setIsVisibleFilters(!isVisibleFilters)}
-          >
-            <BottomContent />
-          </CustomModal>
-        </div>
-      </div>
-      <div className="desktop-menu">
-        {location.pathname === '/' && <BottomContent />}
       </div>
     </header>
   );

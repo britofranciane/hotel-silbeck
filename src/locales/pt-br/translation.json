@@ -78,7 +78,16 @@
         "expiryDate": "Validade",
         "cvc": "CVC",
         "expiryDatePlaceholder": "00/00",
-        "000": "000"
+        "000": "000",
+        "pixInstructions": "Para pagar com PIX, escaneie o QR Code ou use a chave PIX fornecida.",
+        "nameRequired": "Nome é obrigatório",
+        "emailRequired": "Email é obrigatório",
+        "invalidEmail": "Email inválido",
+        "cardNameRequired": "Nome no cartão é obrigatório",
+        "cardNumberRequired": "Número do cartão é obrigatório",
+        "validateRequired": "Data de validade é obrigatória",
+        "cvvRequired": "CVC é obrigatório",
+        "submit": "Enviar"
       },
       "reservationSummary": {
         "title": "Resumo da Reserva",

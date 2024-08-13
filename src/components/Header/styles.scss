@@ -46,6 +46,9 @@
     &__container-reservations {
       display: flex;
       gap: 1rem;
+      .ant-select-selector {
+        border: none !important;
+      }
     }
     &__reservations {
       display: flex;
@@ -113,6 +116,12 @@
   }
   .mobile {
     display: none;
+  }
+}
+
+.remove-border {
+  .ant-select-selector {
+    border: none !important;
   }
 }
 

@@ -1,67 +1,76 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import {
   RoomCard,
   EvaluationCard,
   Title,
-  CustomCarousel
+  CustomCarousel,
+  showNotification
 } from '@components/index';
 import './styles.scss';
-import { getComments } from '@services/comments/service';
-import { getRoomsByLanguage } from '@services/rooms/roomsService';
-import { Room, RoomWithTranslation } from '@services/rooms/roomsTypes';
+import { useFetchComments } from '@hooks/useFetchComments';
+import { useFetchRooms } from '@hooks/useFetchRooms';
+import { useLocale } from '@context/LocaleContext';
+import HomeSkeleton from './skeleton';
+import { useCart } from '@context/CartContext';
 import { formatDate } from '@utils/formatDate';
+import BottomContent from '@components/Header/BottomContent';
 import { useTranslation } from 'react-i18next';
-import { useLocale } from '@context/LocaleContext.tsx';
-import HomeSkeleton from './skeleton.tsx';
-import { useCart } from '@context/CartContext.tsx';
-import { showNotification } from '@components/CustomNotification/index.ts';
-import { Comment } from '@services/comments/types.ts';
-import { formatCurrency } from '@utils/formatCurrency.ts';
+import { Room } from '@services/rooms/roomsTypes';
 
 const Home: React.FC = () => {
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [rooms, setRooms] = useState<RoomWithTranslation[]>([]);
-  const [loading, setLoading] = useState(true);
-
   const { language, currency } = useLocale();
-  const { t } = useTranslation();
+  const { comments, loading: commentsLoading } = useFetchComments(language);
+  const { rooms, loading: roomsLoading } = useFetchRooms(language, currency);
   const { addItem } = useCart();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedComments = await getComments(language);
-        const fetchedRooms = await getRoomsByLanguage(language);
-        setComments(fetchedComments);
-        setRooms(fetchedRooms);
-      } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [language]);
-
+  const loading = commentsLoading || roomsLoading;
   const tPath = (path: string) => t(`pages.home.${path}`);
 
-  const addItemToCart = (room: Room) => {
-    showNotification('success', {
-      message: tPath('notification.message'),
-      description: tPath('notification.description')
-    });
+  const addItemToCart = useCallback(
+    (room: Room) => {
+      showNotification('success', {
+        message: tPath('notification.message'),
+        description: tPath('notification.description')
+      });
 
-    addItem({
-      title: room.title,
-      daily: '2',
-      stay: '08/12/2023 - 10/12/2023',
-      numberGuests: '2',
-      quantity: 3,
-      price: room.price,
-      id: room.id
-    });
-  };
+      addItem({
+        title: room.title,
+        daily: '2',
+        stay: '08/12/2023 - 10/12/2023',
+        numberGuests: '2',
+        quantity: 1,
+        price: room.price,
+        id: room.id
+      });
+    },
+    [addItem, tPath]
+  );
+
+  const renderRoomCards = () =>
+    rooms.map(room => (
+      <RoomCard
+        key={room.id}
+        title={room.title}
+        comments={room.comments}
+        rating={room.rating}
+        description={room.description}
+        price={room.formattedPrice || 'Loading...'}
+        imageUrl={room.image_url}
+        onClick={() => addItemToCart(room)}
+      />
+    ));
+
+  const renderEvaluationCards = () =>
+    comments.map(comment => (
+      <EvaluationCard
+        key={comment.id}
+        name={comment.name}
+        description={comment.comment}
+        date={formatDate(comment.date)}
+        rating={Number(comment.rating)}
+      />
+    ));
 
   return (
     <div className="home-container">
@@ -69,6 +78,8 @@ const Home: React.FC = () => {
         <HomeSkeleton />
       ) : (
         <>
+          <BottomContent />
+
           <section className="home-container__section">
             <div className="home-container__section__container">
               <Title text={tPath('sectionRooms.title')} />
@@ -77,34 +88,13 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="home-container__section__rooms-cards">
-              {rooms &&
-                rooms.map(room => (
-                  <RoomCard
-                    key={room.id}
-                    title={room.title}
-                    comments={room.comments}
-                    rating={room.rating}
-                    description={room.description}
-                    price={formatCurrency(room.price, currency)}
-                    imageUrl={room.image_url}
-                    onClick={() => addItemToCart(room)}
-                  />
-                ))}
+              {renderRoomCards()}
             </div>
           </section>
           <section>
             <Title text={tPath('sectionEvaluation.title')} />
-            {comments && (
-              <CustomCarousel
-                items={comments.map(comment => (
-                  <EvaluationCard
-                    name={comment.name}
-                    description={comment.comment}
-                    date={formatDate(comment.date)}
-                    rating={comment.rating}
-                  />
-                ))}
-              />
+            {comments.length > 0 && (
+              <CustomCarousel items={renderEvaluationCards()} />
             )}
           </section>
         </>

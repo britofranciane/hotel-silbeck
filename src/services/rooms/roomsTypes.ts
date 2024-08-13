@@ -5,6 +5,7 @@ export interface Room extends BaseEntity {
   price: number;
   rating: number;
   id: number;
+  title: string;
 }
 
 export interface RoomTranslation extends BaseEntity {
@@ -18,4 +19,5 @@ export interface RoomWithTranslation extends Room {
   description: string;
   comments: string;
   title: string;
+  formattedPrice?: string;
 }

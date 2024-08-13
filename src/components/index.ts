@@ -11,3 +11,4 @@ export { default as CustomDatePicker } from './CustomDatePicker';
 export { default as CustomCarousel } from './Carousel';
 export { default as MobileMenu } from './MobileMenu';
 export { default as CustomModal } from './CustomModal';
+export { showNotification } from './CustomNotification';

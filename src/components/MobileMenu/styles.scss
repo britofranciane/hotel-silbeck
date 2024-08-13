@@ -1,9 +1,6 @@
 .mobile-menu {
   width: 260px;
   position: fixed;
-  top: 30;
-  z-index: 100;
-  left: 30;
 }
 
 .menu-root {
@@ -14,6 +11,18 @@
     height: 3.5rem !important;
     color: #182558;
     border-color: #182558;
+    top: 20px;
+    left: 20px;
+    box-shadow: none;
+    svg {
+      font-size: 20px;
+    }
+  }
+}
+
+.ant-btn {
+  &:focus-visible {
+    outline: none !important;
   }
 }
 
@@ -23,4 +32,8 @@
 
 .ant-menu-vertical {
   border: none !important;
+}
+
+.ant-menu-light {
+  margin-top: 80px;
 }

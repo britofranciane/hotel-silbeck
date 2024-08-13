@@ -1,3 +1,11 @@
+.container-header-bottom {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 126px;
+  z-index: 10;
+}
+
 .header-bottom {
   background-color: #182558;
   color: #fff;

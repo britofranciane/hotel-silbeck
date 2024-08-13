@@ -14,7 +14,7 @@ interface CartContextProps {
   cart: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (id: number) => void;
-  updateItem: (id: number, updatedItem: Partial<CartItem>) => void;
+  updateItem: (id: number, newQuantity: number) => void;
   clearCart: () => void;
 }
 
@@ -23,10 +23,15 @@ const CartContext = createContext<CartContextProps | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const updateItem = (id: number, updatedItem: Partial<CartItem>) => {
+  const updateItem = (id: number, newQuantity: number) => {
     setCart(prevCart =>
       prevCart.map(item =>
-        item.id === id ? { ...item, ...updatedItem } : item
+        item.id === id
+          ? {
+              ...item,
+              quantity: newQuantity
+            }
+          : item
       )
     );
   };
@@ -34,7 +39,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const addItem = (item: CartItem) => {
     const itemExists = cart.some(cartItem => cartItem.id === item.id);
     if (itemExists) {
-      updateItem(item.id, item);
+      updateItem(item.id, item.quantity + 1);
     } else {
       setCart(prevCart => [...prevCart, item]);
     }
